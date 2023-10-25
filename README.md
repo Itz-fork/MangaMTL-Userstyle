@@ -1,6 +1,8 @@
 # MangaMTL Custom Text
 Customized Google Translate text style for better reading experience in [MangaMTL](https://mangamtl.com/)
 
+![Get on stylus](https://img.shields.io/badge/Get%20On%20Stylus-152030?style=for-the-badge&logo=stylus&logoColor=white)
+
 ## Changes
 - Changed font to `Playpen Sans`
 - Removed ugly-ass gray background and added a white background
