@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         mangamtl.com
-@version      20231025.03
+@version      20231025.04
 @namespace    ?
 ==/UserStyle== */
 @-moz-document domain("mangamtl.com") {
@@ -18,7 +18,7 @@ Customized Google Translate text for MangaMTL
     body > main > div > div > div > span.chapter {
         background: white !important;
         font-family: 'Playpen Sans', cursive !important;
-        font-size: 3vw !important;
+        font-size: calc(3px + 1.5vw) !important;
     }
 
     @media (min-width: 990px) {
