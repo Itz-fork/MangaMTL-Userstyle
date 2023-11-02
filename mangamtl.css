@@ -1,6 +1,6 @@
 /* ==UserStyle==
 @name         mangamtl.com
-@version      20231025.04
+@version      20231102.02
 @namespace    ?
 ==/UserStyle== */
 @-moz-document domain("mangamtl.com") {
@@ -10,19 +10,20 @@ Customized Google Translate text for MangaMTL
 
 - Changed font to Playpen Sans
 - Removed ugly ass gray background and added a white background
-- Increased font size for bigger screens
+- Increased font size
 
 */
     @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
-    body > main > div > div > div > span.chapter {
+    body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
+        color: black !important;
         background: white !important;
         font-family: 'Playpen Sans', cursive !important;
         font-size: calc(3px + 1.5vw) !important;
     }
 
     @media (min-width: 990px) {
-        body > main > div > div > div > span.chapter {
+        body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
             font-size: calc(3px + 2vw) !important;
         }
     }
