@@ -14,6 +14,7 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
 - Chapter pages changes
   - Language flags have been centered and added small gap between them to avoid clicking wrong flag 
   - Added different colors to comment and replie chat bubbles
+  - Hide reply user's avatar
 
 - Homepage changes
   - Made the navbar sticky
