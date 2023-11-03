@@ -1,33 +1,71 @@
 /* ==UserStyle==
 @name         mangamtl.com
-@version      20231102.02
+@version      202311.03
 @namespace    ?
 ==/UserStyle== */
 @-moz-document domain("mangamtl.com") {
     /*
 
-Customized Google Translate text for MangaMTL 
-
-- Changed font to Playpen Sans
-- Removed ugly ass gray background and added a white background
-- Increased font size
+Better site design for MangaMTL
+    - Google translator changes
+        - Changed font to Playpen Sans
+        - Removed ugly ass gray background and added a white background
+        - Increased font size
+    - Homepage changes
+        - Made the navbar sticky
+        - Fixed Image height issues
+        - Adjusted 'Latest Title' and 'Latest Releases' sections to show 2 manhuas in a row
 
 */
     @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
+
+    /* Sticky Navbar*/
+    header {
+        position: sticky !important;
+        top: 0 !important;
+        width: 100% !important;
+
+        z-index: 999;
+    }
+
+    /* Adjust featured manhuas */
+    body > div > div > div > div > div:nth-child(-n + 5):not(:first-child) > div > a > div > img {
+        height: auto !important;
+    }
+
+    body > div > div > div > div > div:nth-child(-n + 5):not(:first-child) {
+        width: 50% !important;
+    }
+
+    /* Adjust 'Latest Releases' Section */
+    body > div > div > div > div > div:nth-child(7) > div > div.list-group.list-group-flush.list-group-hoverable {
+        display: grid !important;
+        gap: 1rem;
+        grid-template-columns: repeat(2, minmax(10vw, 1fr));
+    }
+
+    body > div > div > div > div > div:nth-child(7) > div > div.list-group.list-group-flush.list-group-hoverable > div:nth-child(n) > div > div.col {
+        flex: unset !important;
+    }
+
+    body > div > div > div > div > div:nth-child(7) > div > div.list-group.list-group-flush.list-group-hoverable > div:nth-child(n) img {
+        vertical-align: unset !important;
+    }
+
+
+    /* Translation text styles */
     body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
         color: black !important;
         background: white !important;
         font-family: 'Playpen Sans', cursive !important;
         font-size: calc(3px + 1.5vw) !important;
     }
-
     @media (min-width: 990px) {
         body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
             font-size: calc(3px + 2vw) !important;
         }
     }
-
     .chapter font {
         background: white !important;
     }
