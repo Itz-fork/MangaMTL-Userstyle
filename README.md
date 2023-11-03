@@ -27,6 +27,7 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
   - Enabled text selection for manhua name(s)
   - Swapped positions of comment section and chapter index
   - Made chapter index scrollable to reduce amount of space it takes up
+  - Changed chapter link color to white (visited urls will be shown in blue)
 
 - Library changes
   - Search bar takes full width now
