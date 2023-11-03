@@ -1,31 +1,51 @@
 /* ==UserStyle==
 @name         mangamtl.com
-@version      20231103
+@version      20231103.01
 @namespace    ?
 ==/UserStyle== */
 @-moz-document domain("mangamtl.com") {
-    /*
-
-Better site design for MangaMTL
-    - Google translator changes
-        - Changed font to Playpen Sans
-        - Removed ugly ass gray background and added a white background
-        - Increased font size
-    - Homepage changes
-        - Made the navbar sticky
-        - Fixed Image height issues
-        - Adjusted 'Latest Title' and 'Latest Releases' sections to show 2 manhuas in a row
-
-*/
     @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
+    /* Translation text styles */
+    body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
+        color: black !important;
+        background: white !important;
+        font-family: 'Playpen Sans', cursive !important;
+        font-size: calc(3px + 1.5vw) !important;
+    }
+    @media (min-width: 990px) {
+        body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
+            font-size: calc(3px + 2vw) !important;
+        }
+    }
+    .chapter font {
+        background: white !important;
+    }
 
+    /* Comments */
+    .chat-bubble {
+        background: #23404c !important;
+    }
+    .chat-bubble-me {
+        background: #335e70 !important;
+    }
+    
+    /* Language flags */
+    div[id^="gt-wrapper"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+}
+
+/* Homepage customization */
+@-moz-document url("https://mangamtl.com/") {
     /* Sticky Navbar*/
     header {
         position: sticky !important;
         top: 0 !important;
         width: 100% !important;
-
         z-index: 999;
     }
 
@@ -36,6 +56,11 @@ Better site design for MangaMTL
 
     body > div > div > div > div > div:nth-child(-n + 5):not(:first-child) {
         width: 50% !important;
+    }
+
+    /* Fun Fact */
+    body > div > div > div > div > div:nth-child(6) > div > div.card-body > p {
+        -webkit-text-stroke: 0.4px white;
     }
 
     /* Adjust 'Latest Releases' Section */
@@ -52,21 +77,19 @@ Better site design for MangaMTL
     body > div > div > div > div > div:nth-child(7) > div > div.list-group.list-group-flush.list-group-hoverable > div:nth-child(n) img {
         vertical-align: unset !important;
     }
+}
 
+/* Library page customization */
+@-moz-document url-prefix("https://mangamtl.com/library/") {
+    body > div > div > div {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(100%, 2fr)) !important;
+    }
 
-    /* Translation text styles */
-    body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
-        color: black !important;
-        background: white !important;
-        font-family: 'Playpen Sans', cursive !important;
-        font-size: calc(3px + 1.5vw) !important;
+    body > div > div > div > div > div.sidebar {
+        width: 100% !important;
     }
-    @media (min-width: 990px) {
-        body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
-            font-size: calc(3px + 2vw) !important;
-        }
-    }
-    .chapter font {
-        background: white !important;
+    body > div > div > div > div > div:nth-child(2) {
+        width: 100% !important;
     }
 }
