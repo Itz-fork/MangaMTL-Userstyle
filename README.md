@@ -33,5 +33,8 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
   - Search bar takes full width now
   - Results are placed below search section
 
+- Bookmark changes
+  - Replaced white background in coloumns with a dark blue(#164863) color
+
 ## Preview
 ![site preview](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/3e5ab111-3e9d-41b6-af99-27de91250721)
