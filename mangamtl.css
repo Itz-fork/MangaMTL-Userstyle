@@ -1,21 +1,14 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20231103.04
+@version      20231103.05
 @namespace    ?
 ==/UserStyle== */
 /* Global styles */
 @-moz-document domain("mangamtl.com") {
     @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
-    /* Navbar*/
-    header {
-        position: sticky !important;
-        top: 0 !important;
-        width: 100% !important;
-        z-index: 999;
-    }
-
+    /* Navbar */
     body > div > header > div > div.navbar-nav.flex-row.order-md-last > div.nav-item.dropdown > a > div {
         display: none !important;
     }
@@ -81,6 +74,14 @@
 
 /* Homepage customization */
 @-moz-document url("https://mangamtl.com/") {
+
+    /* Navbar*/
+    header {
+        position: sticky !important;
+        top: 0 !important;
+        width: 100% !important;
+        z-index: 999;
+    }
 
     /* Adjust featured manhuas */
     body > div > div > div > div > div:nth-child(-n + 5):not(:first-child) > div > a > div > img {
