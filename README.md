@@ -17,9 +17,16 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
 
 - Homepage changes
   - Made the navbar sticky
+  - Remove Username from Navbar
   - Fixed Image height issues
   - Added white outline to 'Fun Fact' section paragraph for better visibility in dark mode
   - Adjusted 'Latest Title' and 'Latest Releases' sections to show 2 manhuas in a row
+  - Show "View Info" instead of manhua name in 'Latest Releases'
+
+- Info page changes
+  - Enabled text selection for manhua name(s)
+  - Swapped positions of comment section and chapter index
+  - Made chapter index scrollable to reduce amount of space it takes up
 
 - Library changes
   - Search bar takes full width now
