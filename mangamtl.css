@@ -1,10 +1,16 @@
 /* ==UserStyle==
+@author       Itz-fork
 @name         mangamtl.com
-@version      20231103.01
+@version      20231103.02
 @namespace    ?
 ==/UserStyle== */
 @-moz-document domain("mangamtl.com") {
     @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
+
+    /* Navbar */
+    body > div > header > div > div.navbar-nav.flex-row.order-md-last > div.nav-item.dropdown > a > div {
+        display: none !important;
+    }
 
     /* Translation text styles */
     body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
@@ -29,7 +35,7 @@
     .chat-bubble-me {
         background: #335e70 !important;
     }
-    
+
     /* Language flags */
     div[id^="gt-wrapper"] {
         display: flex;
@@ -37,11 +43,30 @@
         justify-content: center;
         gap: 0.5rem;
     }
+
+    /* Info Page */
+    body > div.page > div > div > div > div > div.col-sm-6.col-lg-9 > div > div:nth-child(1) > div > div > div > span {
+        -webkit-touch-callout: text;
+        -webkit-user-select: text;
+        -khtml-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text !important;
+    }
+    
+    body > div.page > div > div > div > div > div:nth-child(6) {
+        order: 7;
+    }
+    body > div.page > div > div > div > div > div:nth-child(7) {
+        max-height: 50vh;
+        overflow: scroll;
+        order: 6;
+    }
 }
 
 /* Homepage customization */
 @-moz-document url("https://mangamtl.com/") {
-    /* Sticky Navbar*/
+    /* Navbar*/
     header {
         position: sticky !important;
         top: 0 !important;
@@ -64,17 +89,29 @@
     }
 
     /* Adjust 'Latest Releases' Section */
-    body > div > div > div > div > div:nth-child(7) > div > div.list-group.list-group-flush.list-group-hoverable {
+    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] {
         display: grid !important;
         gap: 1rem;
         grid-template-columns: repeat(2, minmax(10vw, 1fr));
     }
 
-    body > div > div > div > div > div:nth-child(7) > div > div.list-group.list-group-flush.list-group-hoverable > div:nth-child(n) > div > div.col {
+    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) > div > div.col {
         flex: unset !important;
     }
 
-    body > div > div > div > div > div:nth-child(7) > div > div.list-group.list-group-flush.list-group-hoverable > div:nth-child(n) img {
+    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) > div > div.col > div:nth-child(2) > a {
+        visibility: hidden !important;
+    }
+    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) > div > div.col > div:nth-child(2) > a::after {
+        content: "View Info ->" !important;
+        visibility: visible;
+        display: block;
+        font-weight: bold;
+    }
+
+    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) img {
+        width: 80%;
+        height: auto;
         vertical-align: unset !important;
     }
 }
