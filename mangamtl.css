@@ -1,9 +1,10 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20231103.03
+@version      20231103.04
 @namespace    ?
 ==/UserStyle== */
+/* Global styles */
 @-moz-document domain("mangamtl.com") {
     @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
@@ -108,12 +109,12 @@
 
     body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) > div > div.col > div:nth-child(2) > a {
         visibility: hidden !important;
-    }
-    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) > div > div.col > div:nth-child(2) > a::after {
-        content: "View Info ->" !important;
-        visibility: visible;
-        display: block;
-        font-weight: bold;
+        &::after {
+            content: "View Info ->" !important;
+            visibility: visible;
+            display: block;
+            font-weight: bold;
+        }
     }
 
     body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) img {
@@ -124,7 +125,7 @@
 }
 
 /* Library page customization */
-@-moz-document url-prefix("https://mangamtl.com/library/") {
+@-moz-document url("https://mangamtl.com/library/") {
     body > div > div > div {
         display: grid !important;
         grid-template-columns: repeat(2, minmax(100%, 2fr)) !important;
@@ -135,5 +136,14 @@
     }
     body > div > div > div > div > div:nth-child(2) {
         width: 100% !important;
+    }
+}
+
+@-moz-document url("https://mangamtl.com/bookmarks/") {
+    .responsive-table .table-row {
+        background: #164863;
+        > div:nth-child(n) a {
+            color: #fff !important;
+        }
     }
 }
