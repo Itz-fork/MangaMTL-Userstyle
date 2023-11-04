@@ -37,5 +37,13 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
 - Bookmark changes
   - Replaced white background in coloumns with a dark blue(#164863) color
 
-## Preview
-![site preview](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/3e5ab111-3e9d-41b6-af99-27de91250721)
+## Previews
+
+|![1](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/74c03e4e-bca4-4730-b20c-b58265944873)<br>Home Page|![2](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/fe7f7e1a-8b78-45f1-b9cd-baf020f02d06)<br>Translation|
+|:-:|:-:|
+
+|![3](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/1779462f-6095-49a4-998a-591c1244d69c)<br>Chapter Index|![4](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/e5489fca-ce93-4dca-b9a3-42cfc88b7463)<br>Bookmarks|
+|:-:|:-:|
+
+|![5](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/3bbeedac-0ca5-4935-a285-77a58fe2e992)<br>Library|![6](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/3e8c7d54-11a3-42c0-ae57-a59c66a02f03)<br>Discussion|
+|:-:|:-:|
