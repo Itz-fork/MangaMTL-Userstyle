@@ -1,11 +1,11 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20231103.05
+@version      20231104
 @namespace    ?
 ==/UserStyle== */
 /* Global styles */
-@-moz-document domain("mangamtl.com") {
+@-moz-document url-prefix("https://mangamtl.com/") {
     @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
     /* Navbar */
@@ -32,9 +32,17 @@
     /* Comments */
     .chat-bubble {
         background: #23404c !important;
+        border-radius: 15px 15px 15px 30px
     }
     .chat-bubble-me {
         background: #335e70 !important;
+        width: fit-content !important;
+        border-radius: 15px 15px 30px 15px;
+        float: right;
+    }
+
+    body > div.page > div > div > div > div > div.card.card-md > div > div > div > div:nth-child(n) > div.col-auto {
+        display: none;
     }
 
     /* Language flags */
