@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20231104
+@version      20231105
 @namespace    ?
 ==/UserStyle== */
 /* Global styles */
@@ -32,17 +32,22 @@
     /* Comments */
     .chat-bubble {
         background: #23404c !important;
+        max-width: 50vw;
+        width: fit-content !important;
         border-radius: 15px 15px 15px 30px
     }
     .chat-bubble-me {
         background: #335e70 !important;
+        max-width: 50vw;
         width: fit-content !important;
         border-radius: 15px 15px 30px 15px;
         float: right;
     }
 
-    body > div.page > div > div > div > div > div.card.card-md > div > div > div > div:nth-child(n) > div.col-auto {
-        display: none;
+    body > div.page > div > div > div > div > div.card.card-md > div > div > div > div:nth-child(n) > div span {
+        @media (max-width: 768px) {
+            display: none;
+        }
     }
 
     /* Language flags */
@@ -81,7 +86,8 @@
 }
 
 /* Homepage customization */
-@-moz-document url("https://mangamtl.com/") {
+@-moz-document url("https://mangamtl.com/"),
+url-prefix("https://mangamtl.com/page/") {
 
     /* Navbar*/
     header {
