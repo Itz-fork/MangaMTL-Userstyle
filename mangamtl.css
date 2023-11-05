@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20231105.02
+@version      20231105.03
 @namespace    ?
 ==/UserStyle== */
 /* Global styles */
@@ -38,14 +38,14 @@
     }
     .chat-bubble-me {
         background: #335e70 !important;
-        max-width: 50vw;
+        max-width: 60vw;
         width: fit-content !important;
         border-radius: 15px 15px 30px 15px;
         float: right;
     }
 
     @media (max-width: 768px) {
-        .chat-bubble-author {
+        .chat-bubble-author, .chat-bubble-date {
             width: 6ch;
             display: inline-block;
             white-space: nowrap;
@@ -55,9 +55,6 @@
                 width: unset;
                 text-overflow: unset;
             }
-        }
-        .chat-bubble-date {
-            display: none;
         }
         body > div.page > div > div > div > div > div.card.card-md > div > div > div > div:nth-child(n) > div span {
             display: none;
