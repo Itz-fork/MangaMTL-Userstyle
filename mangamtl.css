@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20231105
+@version      20231105.02
 @namespace    ?
 ==/UserStyle== */
 /* Global styles */
@@ -44,8 +44,22 @@
         float: right;
     }
 
-    body > div.page > div > div > div > div > div.card.card-md > div > div > div > div:nth-child(n) > div span {
-        @media (max-width: 768px) {
+    @media (max-width: 768px) {
+        .chat-bubble-author {
+            width: 6ch;
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden !important;
+            text-overflow: ellipsis;
+            &:hover {
+                width: unset;
+                text-overflow: unset;
+            }
+        }
+        .chat-bubble-date {
+            display: none;
+        }
+        body > div.page > div > div > div > div > div.card.card-md > div > div > div > div:nth-child(n) > div span {
             display: none;
         }
     }
