@@ -8,7 +8,7 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
 ## Changes
 - Google translator changes
   - Changed font to Playpen Sans
-  - Removed ugly ass gray background and added a white background
+  - Changed gray background to a white background
   - Increased font size
 
 - Chapter pages changes
@@ -21,7 +21,7 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
   - Remove Username from Navbar
   - Fixed Image height issues
   - Added white outline to 'Fun Fact' section paragraph for better visibility in dark mode
-  - Adjusted 'Latest Title' and 'Latest Releases' sections to show 2 manhuas in a row
+  - Adjusted 'Latest Title' and 'Latest Releases' sections to show 2 manhuas on in a row ('Latest Releases' section will show 3 manhuas on bigger screens)
   - Show "View Info" instead of manhua name in 'Latest Releases'
 
 - Info page changes
@@ -31,8 +31,9 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
   - Changed chapter link color to white (visited urls will be shown in blue)
 
 - Library changes
-  - Search bar takes full width now
+  - Centered search bar
   - Results are placed below search section
+  - Ratings are now colored
 
 - Bookmark changes
   - Replaced white background in coloumns with a dark blue(#164863) color
