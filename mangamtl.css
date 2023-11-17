@@ -1,13 +1,15 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20231105.03
+@version      20231117.02
 @namespace    ?
 ==/UserStyle== */
-/* Global styles */
-@-moz-document url-prefix("https://mangamtl.com/") {
-    @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
+
+@-moz-document url-prefix("https://mangamtl.com/") {
+    /* Global Styles */
     /* Navbar */
     body > div > header > div > div.navbar-nav.flex-row.order-md-last > div.nav-item.dropdown > a > div {
         display: none !important;
@@ -32,33 +34,17 @@
     /* Comments */
     .chat-bubble {
         background: #23404c !important;
-        max-width: 50vw;
-        width: fit-content !important;
         border-radius: 15px 15px 15px 30px
     }
     .chat-bubble-me {
         background: #335e70 !important;
-        max-width: 60vw;
         width: fit-content !important;
         border-radius: 15px 15px 30px 15px;
         float: right;
     }
 
-    @media (max-width: 768px) {
-        .chat-bubble-author, .chat-bubble-date {
-            width: 6ch;
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden !important;
-            text-overflow: ellipsis;
-            &:hover {
-                width: unset;
-                text-overflow: unset;
-            }
-        }
-        body > div.page > div > div > div > div > div.card.card-md > div > div > div > div:nth-child(n) > div span {
-            display: none;
-        }
+    body > div.page > div > div > div > div > div.card.card-md > div > div > div > div:nth-child(n) > div.col-auto {
+        display: none;
     }
 
     /* Language flags */
@@ -94,32 +80,14 @@
             }
         }
     }
-}
-
-/* Homepage customization */
-@-moz-document url("https://mangamtl.com/"),
-url-prefix("https://mangamtl.com/page/") {
-
-    /* Navbar*/
-    header {
-        position: sticky !important;
-        top: 0 !important;
-        width: 100% !important;
-        z-index: 999;
-    }
-
+    
     /* Adjust featured manhuas */
     body > div > div > div > div > div:nth-child(-n + 5):not(:first-child) > div > a > div > img {
-        height: auto !important;
+         height: auto !important;
     }
 
     body > div > div > div > div > div:nth-child(-n + 5):not(:first-child) {
         width: 50% !important;
-    }
-
-    /* Fun Fact */
-    body > div > div > div > div > div:nth-child(6) > div > div.card-body > p {
-        -webkit-text-stroke: 0.4px white;
     }
 
     /* Adjust 'Latest Releases' Section */
@@ -127,6 +95,9 @@ url-prefix("https://mangamtl.com/page/") {
         display: grid !important;
         gap: 1rem;
         grid-template-columns: repeat(2, minmax(10vw, 1fr));
+        @media only screen and (min-device-width: 768px) {
+            grid-template-columns: repeat(3, minmax(10vw, 1fr));
+        }
     }
 
     body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) > div > div.col {
@@ -144,28 +115,66 @@ url-prefix("https://mangamtl.com/page/") {
     }
 
     body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) img {
-        width: 80%;
-        height: auto;
+        width: 40rem !important;
+        height: 100% !important;
         vertical-align: unset !important;
     }
 }
 
-/* Library page customization */
-@-moz-document url("https://mangamtl.com/library/") {
+
+@-moz-document url("https://mangamtl.com/") {
+    /* Homepage  */
+    /* Navbar*/
+    header {
+        position: sticky !important;
+        top: 0 !important;
+        width: 100% !important;
+        z-index: 999;
+    }
+
+    /* Fun Fact */
+    body > div > div > div > div > div:nth-child(6) > div > div.card-body > p {
+        -webkit-text-stroke: 0.4px white;
+    }
+}
+
+
+@-moz-document url-prefix("https://mangamtl.com/library/") {
+    /* Library page  */
     body > div > div > div {
         display: grid !important;
         grid-template-columns: repeat(2, minmax(100%, 2fr)) !important;
     }
 
     body > div > div > div > div > div.sidebar {
-        width: 100% !important;
+        width: 75vw !important;
+        margin: auto;
+        [for="searchbox"] {
+            display: none;
+        }
+        #searchbox {
+            margin: auto;
+            width: 50vw;
+            text-align: center;
+        }
     }
     body > div > div > div > div > div:nth-child(2) {
         width: 100% !important;
     }
+    div[id^="fjs_"] {
+        > div > a > img {
+            margin: auto 5vw auto 5vw;
+            width: 80%;
+        }
+        > div > div > div > span {
+            color: black !important;
+            background: yellow !important;
+        }
+    }
 }
 
 @-moz-document url("https://mangamtl.com/bookmarks/") {
+    /* Bookmarks */
     .responsive-table .table-row {
         background: #164863;
         > div:nth-child(n) a {
