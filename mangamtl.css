@@ -1,9 +1,23 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20231117.03
+@version      20240427.03
 @namespace    ?
 ==/UserStyle== */
+
+
+/*
+------------------------------------------------------------------------------------------
+Patch notes: v20240427
+
+- Minor layout update in the homepage
+- Fixed view more button not showing
+- Show visible image size on mobile devices in bookmarks
+- Fix "Add to bookmarks" button not showing sometimes due to google translate overlay
+------------------------------------------------------------------------------------------
+*/
+
+
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
@@ -16,17 +30,24 @@
     }
 
     /* Translation text styles */
-    body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
+    span.chapter {
         color: black !important;
         background: white !important;
         font-family: 'Playpen Sans', cursive !important;
         font-size: calc(3px + 1.5vw) !important;
     }
     @media (min-width: 990px) {
-        body > div.page > div > div > div > div > div.ui-paginator.search__paginator > div:nth-child(n) > span.chapter {
+        span.chapter {
             font-size: calc(3px + 2vw) !important;
         }
     }
+
+    /* Bookmark button */
+    #bookmark {
+        position: relative;
+        z-index: 999 !important;
+    }
+
     .chapter font {
         background: white !important;
     }
@@ -83,7 +104,8 @@
 }
 
 
-@-moz-document url("https://mangamtl.com/"), url-prefix("https://mangamtl.com/page/") {
+@-moz-document url("https://mangamtl.com/"),
+url-prefix("https://mangamtl.com/page/") {
     /* Homepage  */
     /* Navbar*/
     header {
@@ -92,46 +114,65 @@
         width: 100% !important;
         z-index: 999;
     }
+    
+    /* Latest Titles */
+    body > div > div > div > div > div:nth-child(1) > div > div > h2 {
+        font-size: 2em;
+        padding-bottom: 0.5rem;
+    }
 
     /* Fun Fact */
     body > div > div > div > div > div:nth-child(6) > div > div.card-body > p {
         -webkit-text-stroke: 0.4px white;
     }
-    
-    /* Adjust featured manhuas */
-    body > div > div > div > div > div:nth-child(-n + 5):not(:first-child) > div > a > div > img {
-         height: auto !important;
-    }
-
-    body > div > div > div > div > div:nth-child(-n + 5):not(:first-child) {
-        width: 50% !important;
-    }
 
     /* Adjust 'Latest Releases' Section */
-    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] {
-        display: grid !important;
+    body > div > div > div > div > div:nth-child(5) > div > div > h2 {
+        font-size: 2em;
+        padding-top: 2rem;
+        padding-bottom: 1rem;
+    }
+
+    body > div > div > div > div > div:nth-child(6) > div {
+        flex-flow: row wrap;
+        justify-content: space-evenly;
+        align-items: flex-start;
+        font-size: 1.5em;
         gap: 1rem;
-        grid-template-columns: repeat(2, minmax(10vw, 1fr));
-        @media only screen and (min-device-width: 768px) {
-            grid-template-columns: repeat(3, minmax(10vw, 1fr));
+        
+        @media only screen and (max-device-width: 768px) {
+            font-size: 1.2em;
+            
+            /* each release card */
+            div {
+                flex-basis: 50%;
+                flex-grow: 1;
+                
+                img {
+                    width: 75%;
+                    height: auto
+                }
+            }
         }
     }
 
-    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) > div > div.col {
-        flex: unset !important;
-    }
-
-    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) > div > div.col > div:nth-child(2) > a {
-        visibility: hidden !important;
-        &::after {
-            content: "View Info ->" !important;
-            visibility: visible;
-            display: block;
+    body > div > div > div > div > div:nth-child(6) > div > div:nth-child(n) div.col {
+        div:nth-child(1) > a {
             font-weight: bold;
         }
+        
+        div:nth-child(2) > a {
+            visibility: hidden !important;
+            &::after {
+                content: "View Info ->" !important;
+                visibility: visible;
+                display: block;
+                font-weight: bold;
+            }
+        }
     }
 
-    body > div > div > div > div > div:nth-child(7) > div > div[class^="list-group"] > div:nth-child(n) img {
+    body > div > div > div > div > div:nth-child(6) > div > div[class^="list-group"] > div:nth-child(n) img {
         width: 40rem !important;
         height: 100% !important;
         vertical-align: unset !important;
@@ -180,5 +221,9 @@
         > div:nth-child(n) a {
             color: #fff !important;
         }
+    }
+
+    tr > td:nth-child(1) {
+        min-width: 5rem;
     }
 }
