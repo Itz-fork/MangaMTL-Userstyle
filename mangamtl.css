@@ -1,23 +1,19 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20240427.03
+@version      20240429.06
 @namespace    ?
 ==/UserStyle== */
-
-
 /*
 ------------------------------------------------------------------------------------------
-Patch notes: v20240427
+Patch notes: v20240429
 
-- Minor layout update in the homepage
-- Fixed view more button not showing
-- Show visible image size on mobile devices in bookmarks
-- Fix "Add to bookmarks" button not showing sometimes due to google translate overlay
+- Rounded images (except in series info)
+- Change remove series button to a red bin icon in bookmark page
+- Some other minor tweaks to homepage and bookmarks pages
+
 ------------------------------------------------------------------------------------------
 */
-
-
 /* Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Playpen+Sans:wght@600&display=swap');
 
@@ -75,8 +71,16 @@ Patch notes: v20240427
         justify-content: center;
         gap: 0.5rem;
     }
+}
 
-    /* Info Page */
+
+@-moz-document url-prefix("https://mangamtl.com/series/") {
+    /* Series info Page */
+    body > div.page > div > div > div > div > div:nth-child(1) {
+        display: none;
+    }
+
+    /* Manhua name */
     body > div.page > div > div > div > div > div.col-sm-6.col-lg-9 > div > div:nth-child(1) > div > div > div > span {
         -webkit-touch-callout: text;
         -webkit-user-select: text;
@@ -86,10 +90,27 @@ Patch notes: v20240427
         user-select: text !important;
     }
 
-    body > div.page > div > div > div > div > div:nth-child(6) {
+    /* Donations */
+    body > div.page > div > div > div > div > div:nth-child(4) {
+        border: solid 0.3rem #d8dd5b;
+
+        p {
+            color: #e74834 !important;
+        }
+
+        a {
+            color: #10a4b0 !important;
+            font-weight: bold !important;
+        }
+    }
+
+    /* Comment section */
+    body > div.page > div > div > div > div > div:nth-child(5) {
         order: 7;
     }
-    body > div.page > div > div > div > div > div:nth-child(7) {
+
+    /* Chapters */
+    body > div.page > div > div > div > div > div:nth-child(6) {
         max-height: 50vh;
         overflow: scroll;
         order: 6;
@@ -114,11 +135,36 @@ url-prefix("https://mangamtl.com/page/") {
         width: 100% !important;
         z-index: 999;
     }
-    
+
+    /* Donations */
+    body > div > div > div > div > div:nth-child(1) > div {
+        border: solid 0.3rem #d8dd5b;
+
+        p {
+            color: #e74834 !important;
+        }
+
+        a {
+            color: #10a4b0 !important;
+            font-weight: bold !important;
+        }
+    }
+
     /* Latest Titles */
-    body > div > div > div > div > div:nth-child(1) > div > div > h2 {
+    body > div > div > div > div > div:nth-child(3) {
+        img {
+            border-radius: 5%;
+        }
+        .subheader {
+            color: white;
+            font-size: 0.8rem;
+        }
+    }
+    
+    body > div > div > div > div > div:nth-child(2) > div > div > h2 {
         font-size: 2em;
-        padding-bottom: 0.5rem;
+        padding-top: 1rem;
+        padding-bottom: 0.4rem;
     }
 
     /* Fun Fact */
@@ -127,27 +173,37 @@ url-prefix("https://mangamtl.com/page/") {
     }
 
     /* Adjust 'Latest Releases' Section */
-    body > div > div > div > div > div:nth-child(5) > div > div > h2 {
+    body > div > div > div > div > div:nth-child(6) > div > div > h2 {
         font-size: 2em;
         padding-top: 2rem;
-        padding-bottom: 1rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    
+    /* Latest manhua */
+    body > div > div > div > div > div:nth-child(7) {
+        img {
+            border-radius: 5%;
+        }
     }
 
-    body > div > div > div > div > div:nth-child(6) > div {
+    /*
+    body > div > div > div > div > div:nth-child(7) > div {
         flex-flow: row wrap;
         justify-content: space-evenly;
         align-items: flex-start;
         font-size: 1.5em;
         gap: 1rem;
-        
+
+
         @media only screen and (max-device-width: 768px) {
             font-size: 1.2em;
-            
-            /* each release card */
+
+           *each release card*
             div {
                 flex-basis: 50%;
                 flex-grow: 1;
-                
+
                 img {
                     width: 75%;
                     height: auto
@@ -155,12 +211,12 @@ url-prefix("https://mangamtl.com/page/") {
             }
         }
     }
-
-    body > div > div > div > div > div:nth-child(6) > div > div:nth-child(n) div.col {
+*/
+    body > div > div > div > div > div:nth-child(7) > div > div:nth-child(n) div.col {
         div:nth-child(1) > a {
             font-weight: bold;
         }
-        
+
         div:nth-child(2) > a {
             visibility: hidden !important;
             &::after {
@@ -206,6 +262,7 @@ url-prefix("https://mangamtl.com/page/") {
         > div > a > img {
             margin: auto 5vw auto 5vw;
             width: 80%;
+            border-radius: 5%;
         }
         > div > div > div > span {
             color: black !important;
@@ -223,7 +280,35 @@ url-prefix("https://mangamtl.com/page/") {
         }
     }
 
-    tr > td:nth-child(1) {
-        min-width: 5rem;
+    /* bookmark manhua preview img */
+    img {
+        border-radius: 10%;
+        max-width: 10em !important;
+
+        @media only screen and (max-device-width: 768px) {
+            max-width: 5rem !important;
+        }
+    }
+
+    /* table cells */
+    td {
+        padding-right: 0px !important;
+    }
+
+    tr:nth-child(n) > td:nth-child(1) {
+        width: 1em !important;
+        padding-left: 0px !important;
+
+        > .wpfp-img {
+            filter: brightness(0) saturate(100%) invert(56%) sepia(70%) saturate(6401%) hue-rotate(346deg) brightness(96%) contrast(93%);
+        }
+
+        > a {
+            visibility: hidden !important;
+        }
+    }
+
+    tr:nth-child(n) > td:nth-child(2) img {
+        min-width: 5rem !important;
     }
 }
