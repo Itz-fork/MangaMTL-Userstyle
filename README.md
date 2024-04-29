@@ -39,6 +39,7 @@ Improved site design for better user experience in [MangaMTL](https://mangamtl.c
   - Replaced white background in coloumns with a dark blue(#164863) color
 
 ## Previews
+**These previews are outdated as of 2024/04/27 ⚠️❗❗❗**
 
 |![1](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/74c03e4e-bca4-4730-b20c-b58265944873)<br>Home Page|![2](https://github.com/Itz-fork/MangaMTL-Userstyle/assets/77770753/fe7f7e1a-8b78-45f1-b9cd-baf020f02d06)<br>Translation|
 |:-:|:-:|
