@@ -1,16 +1,15 @@
 /* ==UserStyle==
 @author       Itz-fork
 @name         mangamtl.com
-@version      20240429.06
+@version      20240501.02
 @namespace    ?
 ==/UserStyle== */
 /*
 ------------------------------------------------------------------------------------------
-Patch notes: v20240429
+Patch notes: v20240501
 
-- Rounded images (except in series info)
-- Change remove series button to a red bin icon in bookmark page
-- Some other minor tweaks to homepage and bookmarks pages
+- Fix remove bookmark issue
+- Changed text selection color for better visibility
 
 ------------------------------------------------------------------------------------------
 */
@@ -65,62 +64,31 @@ Patch notes: v20240429
     }
 
     /* Language flags */
-    div[id^="gt-wrapper"] {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
+    header > p:after {
+        content: "Don't see your language? It might be at the end of the list below, scroll!!!"
     }
-}
-
-
-@-moz-document url-prefix("https://mangamtl.com/series/") {
-    /* Series info Page */
-    body > div.page > div > div > div > div > div:nth-child(1) {
-        display: none;
-    }
-
-    /* Manhua name */
-    body > div.page > div > div > div > div > div.col-sm-6.col-lg-9 > div > div:nth-child(1) > div > div > div > span {
-        -webkit-touch-callout: text;
-        -webkit-user-select: text;
-        -khtml-user-select: text;
-        -moz-user-select: text;
-        -ms-user-select: text;
-        user-select: text !important;
-    }
-
-    /* Donations */
-    body > div.page > div > div > div > div > div:nth-child(4) {
-        border: solid 0.3rem #d8dd5b;
-
-        p {
-            color: #e74834 !important;
+    div[class^="gt_switcher"] {
+        border: 5px solid #df622c !important;
+        width: 20vw !important;
+        @media only screen and (max-device-width: 768px) {
+            width: 45vw !important;
         }
-
         a {
-            color: #10a4b0 !important;
-            font-weight: bold !important;
+            font-size: 1rem !important;
         }
     }
 
-    /* Comment section */
-    body > div.page > div > div > div > div > div:nth-child(5) {
-        order: 7;
+    /* Text selector */
+    ::selection {
+        background-color: #66fcf1;
+        color: #101010;
+        -webkit-text-fill-color: #101010;
     }
 
-    /* Chapters */
-    body > div.page > div > div > div > div > div:nth-child(6) {
-        max-height: 50vh;
-        overflow: scroll;
-        order: 6;
-
-        > div a {
-            color: #fff;
-            &:visited {
-                color: #87C4FF;
-            }
-        }
+    ::-moz-selection {
+        background-color: #66fcf1;
+        color: #101010;
+        -webkit-text-fill-color: #101010;
     }
 }
 
@@ -139,10 +107,7 @@ url-prefix("https://mangamtl.com/page/") {
     /* Donations */
     body > div > div > div > div > div:nth-child(1) > div {
         border: solid 0.3rem #d8dd5b;
-
-        p {
-            color: #e74834 !important;
-        }
+        color: #f75a46 !important;
 
         a {
             color: #10a4b0 !important;
@@ -160,7 +125,7 @@ url-prefix("https://mangamtl.com/page/") {
             font-size: 0.8rem;
         }
     }
-    
+
     body > div > div > div > div > div:nth-child(2) > div > div > h2 {
         font-size: 2em;
         padding-top: 1rem;
@@ -178,8 +143,8 @@ url-prefix("https://mangamtl.com/page/") {
         padding-top: 2rem;
         padding-bottom: 0.5rem;
     }
-    
-    
+
+
     /* Latest manhua */
     body > div > div > div > div > div:nth-child(7) {
         img {
@@ -232,6 +197,54 @@ url-prefix("https://mangamtl.com/page/") {
         width: 40rem !important;
         height: 100% !important;
         vertical-align: unset !important;
+    }
+}
+
+
+@-moz-document url-prefix("https://mangamtl.com/series/") {
+    /* Series info Page */
+    body > div.page > div > div > div > div > div:nth-child(1) {
+        display: none;
+    }
+
+    /* Manhua name */
+    body > div.page > div > div > div > div > div.col-sm-6.col-lg-9 > div > div:nth-child(1) > div > div > div > span {
+        -webkit-touch-callout: text;
+        -webkit-user-select: text;
+        -khtml-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text !important;
+    }
+
+    /* Donations */
+    body > div.page > div > div > div > div > div:nth-child(4) {
+        border: solid 0.3rem #d8dd5b;
+        color: #f75a46 !important;
+
+        a {
+            color: #10a4b0 !important;
+            font-weight: bold !important;
+        }
+    }
+
+    /* Comment section */
+    body > div.page > div > div > div > div > div:nth-child(5) {
+        order: 7;
+    }
+
+    /* Chapters */
+    body > div.page > div > div > div > div > div:nth-child(6) {
+        max-height: 50vh;
+        overflow: scroll;
+        order: 6;
+
+        > div a {
+            color: #fff;
+            &:visited {
+                color: #87C4FF;
+            }
+        }
     }
 }
 
@@ -300,11 +313,18 @@ url-prefix("https://mangamtl.com/page/") {
         padding-left: 0px !important;
 
         > .wpfp-img {
-            filter: brightness(0) saturate(100%) invert(56%) sepia(70%) saturate(6401%) hue-rotate(346deg) brightness(96%) contrast(93%);
+            visibility: hidden !important;
         }
 
         > a {
             visibility: hidden !important;
+            &::after {
+                content: url("https://css.gg/trash.svg") !important;
+                filter: brightness(0) saturate(100%) invert(56%) sepia(70%) saturate(6401%) hue-rotate(346deg) brightness(96%) contrast(93%);
+                visibility: visible;
+                display: block;
+                font-weight: bold;
+            }
         }
     }
 
