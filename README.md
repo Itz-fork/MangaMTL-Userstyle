@@ -1,3 +1,5 @@
+# MangaMTL went offline on May 01. Currently working on [ManhuaMTL](https://github.com/Itz-fork/ManhuaMTL)
+
 # Better MangaMTL
 Improved site design for better user experience in [MangaMTL](https://mangamtl.com/)
 
